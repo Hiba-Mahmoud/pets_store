@@ -20,12 +20,12 @@ Route::post('admin-login', [AdminController::class,'login'])->name('admin-login'
 
 // 'middleware'=>'auth'
 
-Route::Group([],function(){
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    });
-
+Route::Group(['middleware'=>'auth'],function(){
+    Route::get('/', function () {return view('admin.dashboard'); });
     Route::get('show-add-admin-form',[AdminController::class,'addAdminForm'])->name('show-add-admin-form');
     Route::post('add-admin',[AdminController::class,'addAdmin'])->name('add-admin');
+    Route::get('index',[AdminController::class,'index'])->name('index');
+    Route::post('verify-email',[AdminController::class,'verifyEmail'])->name('verify-email');
+    Route::get('logout',[AdminController::class,'logout'])->name('logout');
 
 });

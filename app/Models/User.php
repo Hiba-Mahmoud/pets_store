@@ -23,7 +23,9 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'pin_code'
+        'pin_code',
+        'remember_token',
+        'email_verified_at',
 
     ];
     public function setPasswordAttribute($value){

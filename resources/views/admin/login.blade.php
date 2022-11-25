@@ -3,7 +3,18 @@
 
     <body class="hold-transition login-page">
 
-
+        @if($message = Session::get('success'))
+        <div class="alert alert-info">{{$message}}</div>
+        @endif
+        @if($message = Session::get('message'))
+        {{-- <div class="alert alert-info">{{$message}}</div> --}}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>{{$message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
         <div class="login-box">
             <div class="login-logo">
                 <a ><b>Admin</b>Login</a>
@@ -16,7 +27,7 @@
                     <form action="{{route('admin-login')}}" method="post">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" name='email' placeholder="Email">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -28,7 +39,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" name='password' placeholder="Password">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
