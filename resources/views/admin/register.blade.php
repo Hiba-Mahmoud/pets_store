@@ -11,7 +11,7 @@
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Register a new membership</p>
 
-                <form action="{{route('add-admin')}}" method="post">
+                <form action="{{route('admin.add-admin')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name='name' placeholder="Full name">

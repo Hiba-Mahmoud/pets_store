@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('brand_translations', function (Blueprint $table) {
             $table->id();
+			$table->bigInteger('brand_id')->unsigned();
+            $table->string('locale');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role',['admin','subAdmin']);
-            $table->string('image')->default('admin/dist/img/user2-160x160.jpg');
-            $table->string('pin_code')->nullable();
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('brand_translations');
     }
 };

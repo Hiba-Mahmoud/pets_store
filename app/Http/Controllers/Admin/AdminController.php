@@ -22,83 +22,89 @@ class AdminController extends Controller
 {
 
 
-    public function loginForm(){
+    public function home()
+    {
+        return view('admin.dashboard');
+    }
+    public function loginForm()
+    {
         return view('admin.login');
     }
 
 
 
 
-    public function login(Login $request){
-        // dd($request);
-        $admin = User::where('email',$request->email)->first();
-        if($admin){
-            $isverified =$admin->email_verified_at;
-            // dd($isverified);
 
-        if(!$isverified){
-            return redirect('index')->with(['message'=>'please verify you email']);
-        }
+    public function login(Login $request)
+    {
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            if (!(auth()->user()->email_verified_at)) {
+                return redirect('index')->with(['message' => 'please verify you email']);
+            }
+
             return redirect()->intended('/');
         }
-        return redirect("login")->withSuccess('Login details are not valid');
-    }
-    return redirect("login")->withSuccess('you arenot an admin');
 
-
-
+        return redirect("login")->withSuccess('Login details are not valid or make sure you are an admin');
     }
 
 
-    public function verifyEmail(PinCodeRequest $request){
 
-        $admin = User::where('email',$request->email)->first();
-       $updated =  $admin->update(['email_verified_at' =>Carbon::now()]);
-    //    $updated =  auth()->user()->update(['email_verified_at' =>now()]);
 
-    // dd($updated);
-    return redirect()->intended('/');
-        // return 'kkkkkkkkk';
+    public function verifyEmail(PinCodeRequest $request)
+    {
 
+        // $admin = User::where('email', $request->email)->first();
+        // $updated =  $admin->update(['email_verified_at' => Carbon::now()]);
+        auth()->user()->update(['email_verified_at' =>now()]);
+
+        return redirect()->intended('/');
     }
 
 
 
 
 
-    public function index(){
+    public function index()
+    {
         return view('admin.verifyEmail');
-     }
-    public function addAdminForm(){
+    }
+
+
+
+    public function addAdminForm()
+    {
         return view('admin.register');
-     }
-     public function logout() {
+    }
+
+
+
+
+    public function addAdmin(AddAdminRequest $request)
+    {
+        $code = rand(1111, 9999);
+        $admin = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => $request->role,
+            'pin_code' => $code,
+            'remember_token' => Str::random(40),
+        ]);
+        Mail::to($admin->email)
+            ->send(new ConfirmEmail($code));
+
+        return redirect('/')->with(['message' => 'admin created successfuly']);
+    }
+
+
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
 
         return Redirect('login');
-    }
-
-
-
-
-
-    public function addAdmin(AddAdminRequest $request ){
-        $code = rand(1111, 9999);
-        $admin = User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password,
-            'role'=>$request->role,
-            'pin_code'=> $code,
-            'remember_token'=> Str::random(40),
-        ]);
-        Mail::to($admin->email)
-        ->send(new ConfirmEmail($code));
-
-        return redirect('/')->with(['message'=>'admin created successfuly']);
-
     }
 }

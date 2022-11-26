@@ -137,11 +137,10 @@
          <!-- Sidebar user panel (optional) -->
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              <div class="image">
-                 <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                     alt="User Image">
+                 <img src="{{ auth()->user()->image }}" class="img-circle elevation-2" alt="User Image">
              </div>
              <div class="info">
-                 <a href="#" class="d-block">Alexander Pierce</a>
+                 <a href="#" class="d-block">{{ auth()->user()->name }}</a>
              </div>
          </div>
 
@@ -237,6 +236,41 @@
                          </li>
                      </ul>
                  </li>
+                {{-- -------------- Brands CRUD -------------------- --}}
+
+
+
+
+                 <li class="nav-item has-treeview">
+                     <a href="#" class="nav-link">
+                         <i class="nav-icon fas fa-chart-pie"></i>
+                         <p>
+                             Brands
+                             <i class="right fas fa-angle-left"></i>
+                         </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                         <li class="nav-item">
+                             <a href="{{route('brands')}}" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>index</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="pages/charts/flot.html" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Flot</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="pages/charts/inline.html" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Inline</p>
+                             </a>
+                         </li>
+                     </ul>
+                 </li>
+                 {{-- ------------Brands CRUD ended ---------------------- --}}
                  <li class="nav-item has-treeview">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-chart-pie"></i>
@@ -335,7 +369,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="{{ route('show-add-admin-form') }}" class="nav-link">
+                             <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add admin</p>
                              </a>
@@ -499,7 +533,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="{{route('logout')}}" class="nav-link">
+                             <a href="{{ route('admin.logout') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>logout</p>
                              </a>
