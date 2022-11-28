@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandsController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,13 @@ Route::get('login', [AdminController::class,'loginForm'])->name('login');
 Route::post('admin-login', [AdminController::class,'login'])->name('admin-login');
 });
 // 'middleware'=>'auth'
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ //...
+
 
 Route::Group(['prefix'=>'admin','middleware'=>'auth'],function(){
     // Route::get('/', function () {return view('admin.dashboard'); })->name('admin');
@@ -39,4 +47,5 @@ Route::Group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::post('delete/{id}',[BrandsController::class,'destroy'])->name('brands.delete');
 
     });
+});
 });

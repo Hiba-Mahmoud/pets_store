@@ -14,7 +14,7 @@
      </ul>
 
      <!-- SEARCH FORM -->
-     {{-- <form class="form-inline ml-3">
+     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -23,10 +23,34 @@
           </button>
         </div>
       </div>
-    </form> --}}
+    </form>
 
      <!-- Right navbar links -->
      <ul class="navbar-nav mr-auto-navbav">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                {{__('admin/nav.language')}}
+
+            </button>
+            <ul class="dropdown-menu">
+              @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <li class="dropdown-item">
+                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}
+                    </a>
+                </li>
+            @endforeach
+            </ul>
+          </div>
+        {{-- <ul>
+            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <li>
+                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}
+                    </a>
+                </li>
+            @endforeach
+        </ul> --}}
          <!-- Messages Dropdown Menu -->
          <li class="nav-item dropdown">
              <a class="nav-link" data-toggle="dropdown" href="#">
@@ -359,11 +383,12 @@
                          </li>
                      </ul>
                  </li>
+                 {{-- -----------------admins------------------------- --}}
                  <li class="nav-item has-treeview">
                      <a class="nav-link">
                          <i class="nav-icon fas fa-edit"></i>
                          <p>
-                             Forms
+                             {{__('admin/nav.forms')}}
                              <i class="fas fa-angle-left right"></i>
                          </p>
                      </a>
@@ -371,7 +396,7 @@
                          <li class="nav-item">
                              <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Add admin</p>
+                                 <p>{{__('admin/nav.addAdmin')}}</p>
                              </a>
                          </li>
                          <li class="nav-item">
@@ -388,6 +413,46 @@
                          </li>
                      </ul>
                  </li>
+                 {{-- -------------------------end admins ---------------------------  --}}
+
+
+
+                 {{-- -----------------admins------------------------- --}}
+                 <li class="nav-item has-treeview">
+                    <a class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            {{__('admin/nav.brands')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.showBrands')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('brands.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.createBrand')}}</p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/forms/editors.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Editors</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- -------------------------end admins ---------------------------  --}}
+
+
+
+
                  <li class="nav-item has-treeview">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-table"></i>
