@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'forms'=>'forms',
+    'forms'=>'admins',
     'addAdmin'=>'Add Admin',
     'language'=>'Language',
     'brands'=>'Brands',

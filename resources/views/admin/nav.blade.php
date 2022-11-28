@@ -385,42 +385,40 @@
                  </li>
                  {{-- -----------------admins------------------------- --}}
                  <li class="nav-item has-treeview">
-                     <a class="nav-link">
-                         <i class="nav-icon fas fa-edit"></i>
-                         <p>
-                             {{__('admin/nav.forms')}}
-                             <i class="fas fa-angle-left right"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>{{__('admin/nav.addAdmin')}}</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="pages/forms/advanced.html" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Advanced Elements</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="pages/forms/editors.html" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Editors</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            {{__('admin/nav.forms')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        
+                        <li class="nav-item">
+                            <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.addAdmin')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>jsGrid</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                  {{-- -------------------------end admins ---------------------------  --}}
 
 
 
-                 {{-- -----------------admins------------------------- --}}
-                 <li class="nav-item has-treeview">
-                    <a class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                 {{-- -----------------brands------------------------- --}}
+
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
                         <p>
                             {{__('admin/nav.brands')}}
                             <i class="fas fa-angle-left right"></i>
@@ -441,9 +439,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/editors.html" class="nav-link">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Editors</p>
+                                <p>jsGrid</p>
                             </a>
                         </li>
                     </ul>

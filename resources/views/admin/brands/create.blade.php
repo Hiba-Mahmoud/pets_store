@@ -9,7 +9,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <a >create brand</a>
+        <a >{{__('admin/brands.create')}}</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -19,7 +19,7 @@
             <form action="{{route('brands.store')}}" method="post">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name='name_ar' placeholder="name_ar">
+                    <input type="text" class="form-control" name='name_ar' placeholder="{{__('admin/brands.name_ar')}}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -33,7 +33,7 @@
 
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name='name_en' placeholder="name_en">
+                    <input type="text" class="form-control" name='name_en' placeholder="{{__('admin/brands.name_en')}}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -44,23 +44,20 @@
                 @error('name_en')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 pr-4">
 
-                    <input type="checkbox" class="form-control" name='is_active' id="is-active" >
-                    <label for="is-active">is active</label>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
+                    <input type="checkbox" class=" form-check-input" name='is_active' id="is-active" >
+                    <label class="form-check-label" for="is-active">{{__('admin/brands.active')}}</label>
+
                 </div>
+
                 @error('is_active')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
                     <!-- /.col -->
-                    <div class="col-4">
-                        <input type="submit" class="btn btn-primary btn-block btn-flat" value="submit">
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary btn-block btn-flat " value="{{__('admin/brands.submit')}}">
                     </div>
                     <!-- /.col -->
                 </div>
