@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\CategoryController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -35,7 +36,6 @@ Route::group(
 
 
         Route::Group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-            // Route::get('/', function () {return view('admin.dashboard'); })->name('admin');
             Route::get('/', [AdminController::class, 'home'])->name('admin');
             Route::get('show-add-admin-form', [AdminController::class, 'addAdminForm'])->name('admin.show-add-admin-form');
             Route::post('add-admin', [AdminController::class, 'addAdmin'])->name('admin.add-admin');
@@ -67,7 +67,18 @@ Route::group(
                 Route::post('update/{id}', [CategoryController::class, 'update'])->name('categories.update');
                 Route::post('delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
             });
+
             ###############categories ended ###################
+
+            ############### categories ######################
+            Route::group(['prefix' => 'animals'], function () {
+                Route::get('/', [AnimalController::class, 'index'])->name('animals.index');
+                Route::get('create', [AnimalController::class, 'create'])->name('animals.create');
+                Route::post('store', [AnimalController::class, 'store'])->name('animals.store');
+                Route::get('edit/{id}', [AnimalController::class, 'edit'])->name('animals.edit');
+                Route::post('update/{id}', [AnimalController::class, 'update'])->name('animals.update');
+                Route::post('delete/{id}', [AnimalController::class, 'destroy'])->name('animals.delete');
+            });
         });
-    }
-);
+            ###############categories ended ###################
+    });

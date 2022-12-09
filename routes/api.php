@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
+Route::Group(['prefix' => 'clients'], function () {
+
+    Route::get('/categories', [GeneralController::class, 'categories']);
+    Route::get('/brands', [GeneralController::class, 'brands']);
+    Route::get('/animals', [GeneralController::class, 'animals']);
+
+
+
+});
 
 
 

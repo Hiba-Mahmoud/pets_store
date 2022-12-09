@@ -10,6 +10,9 @@ return [
     'categories'=>'التصنيفات',
     'showCategores'=>'عرض التصنيفات',
     'createCategories'=>'إضافة التصنيفات ',
+    'animals'=>'الحيوانات الاليفة',
+    'showanimals'=>'عرض الحيوانات الاليفة',
+    'createanimal'=>'إضافة حيوان اليف ',
 
 
 ];
