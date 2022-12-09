@@ -25,8 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 // category=> products(food, supplies, toyes ,medical)
-// cat_category=> cats(cats_typs)
-// dog_category=> cats(cats_typs)
+// amimal_type=> cats(cats_typs)
 // animal =>(animal name)
 // animal =>(animal name)
 // products =>(name , description ,price , brand _id, category_id,animal_id,amount,image)

@@ -25,9 +25,9 @@ class BrandRequest extends FormRequest
     {
         return [
 
-            'name_ar'=>'required|string',
             'name_en'=>'required|string',
-            'is_active'=>'required'
+            'name_ar'=>'required|string',
+            'is_active'=>''
         ];
     }
 }

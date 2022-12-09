@@ -75,6 +75,10 @@ class BrandsController extends Controller
     {
         return view('admin.brands.create');
     }
+
+
+
+    
     public function store(BrandRequest $request)
     {
         $brand = new Brand();

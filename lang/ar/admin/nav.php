@@ -7,6 +7,9 @@ return [
     'brands'=>'الماركات',
     'showBrands'=>'عرض العلامات التجارية',
     'createBrand'=>'إضافة علامة تجارية',
+    'categories'=>'التصنيفات',
+    'showCategores'=>'عرض التصنيفات',
+    'createCategories'=>'إضافة التصنيفات ',
 
 
 ];

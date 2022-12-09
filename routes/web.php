@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Yajra\DataTables\Html\Builder;
+use Illuminate\Support\Facades\Route;
 
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandsController;
+use App\Http\Controllers\Admin\CategoryController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -54,6 +55,19 @@ Route::group(
                 Route::post('update/{id}', [BrandsController::class, 'update'])->name('brands.update');
                 Route::post('delete/{id}', [BrandsController::class, 'destroy'])->name('brands.delete');
             });
+            ###############brand ended ######################
+
+
+            ############### categories ######################
+            Route::group(['prefix' => 'categories'], function () {
+                Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+                Route::get('create', [CategoryController::class, 'create'])->name('categories.create');
+                Route::post('store', [CategoryController::class, 'store'])->name('categories.store');
+                Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+                Route::post('update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+                Route::post('delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
+            });
+            ###############categories ended ###################
         });
     }
 );
