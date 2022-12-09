@@ -275,7 +275,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="{{route('brands')}}" class="nav-link">
+                             {{-- <a href="{{route('brands')}}" class="nav-link"> --}}
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>index</p>
                              </a>
@@ -386,6 +386,7 @@
                  {{-- -----------------admins------------------------- --}}
                  <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
+
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             {{__('admin/nav.forms')}}
@@ -393,7 +394,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        
+
                         <li class="nav-item">
                             <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -426,7 +427,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.show-add-admin-form') }}" class="nav-link">
+                            <a href="{{ route('brands.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('admin/nav.showBrands')}}</p>
                             </a>
@@ -685,7 +686,7 @@
  </aside>
 
  <!-- Content Wrapper. Contains page content -->
- <div class="content-wrapper">
+ <div class="content-wrapper" style="background: #fff">
      <!-- Content Header (Page header) -->
      <div class="content-header">
          <div class="container-fluid">
@@ -704,6 +705,8 @@
      </div>
      <!-- /.content-header -->
 
-     @yield('content')
+    <div >
+        @yield('content')
+    </div>
  </div>
  <!-- /.content-wrapper -->

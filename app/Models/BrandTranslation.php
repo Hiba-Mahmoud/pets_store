@@ -10,4 +10,7 @@ class BrandTranslation extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+    // public function brands(){
+    //     return $this->belongsTo('App\Models\Brand');
+    //    }
 }

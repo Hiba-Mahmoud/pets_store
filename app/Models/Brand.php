@@ -21,5 +21,9 @@ class Brand extends Model
     // public $translateAttributes = ['name'];
     public $translatedAttributes = ['name'];
 
+    // public function brandTranslations(){
+    //     return $this->hasMany('App\Models\BrandTranslation');
+    //    }
+
 
 }

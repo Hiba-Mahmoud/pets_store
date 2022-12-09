@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>dasboardLTE 3 | Dashboard</title>
+  <title>{{!empty($title)?$title:'DashBoard'}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -41,7 +41,7 @@
   @yield('links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+<div class="wrapper"  style="background: white !important">
 
     @yield('nav')
     @yield('body')
