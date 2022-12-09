@@ -38,22 +38,18 @@ class AnimalController extends Controller
      */
     public function store(BrandRequest $request)
     {
-        $brand = new Animal();
-        if ($request->is_active == 'on') {
+        $animal = new Animal();
 
-            $brand->is_active = true;
-        } else {
-            $brand->is_active = false;
-        }
-        $brand->save();
+        isActive($request->is_active,$animal);
+        $animal->save();
 
         $english = 'en';
-        $brand->translateOrNew($english)->name = " $request->name_en";
-        $brand->save();
+        $animal->translateOrNew($english)->name = " $request->name_en";
+        $animal->save();
 
         $locale = 'ar';
-        $brand->translateOrNew($locale)->name = " $request->name_ar";
-        $brand->save();
+        $animal->translateOrNew($locale)->name = " $request->name_ar";
+        $animal->save();
 
         return redirect('/admin')->with(['message' => 'animal addes succsessfully']);
     }

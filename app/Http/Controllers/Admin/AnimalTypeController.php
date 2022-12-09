@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Animal;
+use App\Models\AnimalType;
 use Illuminate\Http\Request;
 use App\Http\Requests\BrandRequest;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 
-class CategoryController extends Controller
+class AnimalTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $animals= Animal::where('is_active',1)->get();
+        return view('admin.animalType.create',['animals'=>$animals]);
 
     }
 
@@ -38,22 +40,22 @@ class CategoryController extends Controller
      */
     public function store(BrandRequest $request)
     {
-        // dd($request);
-        $category = new Category();
+        
+        $animalType = new AnimalType();
 
         // helper function
-        isActive($request->is_active,$category);
-        $category->save();
+        isActive($request->is_active,$animalType);
+        $animalType->save();
 
         $english = 'en';
-        $category->translateOrNew($english)->name = " $request->name_en";
-        $category->save();
+        $animalType->translateOrNew($english)->name = " $request->name_en";
+        $animalType->save();
 
         $locale = 'ar';
-        $category->translateOrNew($locale)->name = " $request->name_ar";
-        $category->save();
+        $animalType->translateOrNew($locale)->name = " $request->name_ar";
+        $animalType->save();
 
-        return redirect('/admin')->with(['message' => 'catogery addes succsessfully']);
+        return redirect('/admin')->with(['message' => 'animalType addes succsessfully']);
     }
 
     /**

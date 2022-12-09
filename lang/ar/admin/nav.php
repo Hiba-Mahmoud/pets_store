@@ -13,6 +13,9 @@ return [
     'animals'=>'الحيوانات الاليفة',
     'showanimals'=>'عرض الحيوانات الاليفة',
     'createanimal'=>'إضافة حيوان اليف ',
+    'animalType'=>'انواع الحيوانات الاليفة',
+    'showAnimalsTypes'=>'عرض انواع الحيوانات الاليفة',
+    'createAnimalType'=>'إضافة نوع حيوان اليف ',
 
 
 ];

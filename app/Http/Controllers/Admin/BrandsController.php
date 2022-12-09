@@ -78,16 +78,11 @@ class BrandsController extends Controller
 
 
 
-    
+
     public function store(BrandRequest $request)
     {
         $brand = new Brand();
-        if ($request->is_active == 'on') {
-
-            $brand->is_active = true;
-        } else {
-            $brand->is_active = false;
-        }
+        isActive($request->is_active,$brand);
         $brand->save();
 
         $english = 'en';

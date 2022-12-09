@@ -376,6 +376,40 @@
                     </ul>
                 </li>
                 {{-- -------------------------end animals ---------------------------  --}}
+                 {{-- -----------------animalType------------------------- --}}
+
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            {{__('admin/nav.animalType')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('animals.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.showAnimalsTypes')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('animalTypes.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.createAnimalType')}}</p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>jsGrid</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- -------------------------end animalType ---------------------------  --}}
 
 
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AnimalTypeController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -80,5 +81,16 @@ Route::group(
                 Route::post('delete/{id}', [AnimalController::class, 'destroy'])->name('animals.delete');
             });
         });
+            ###############categories ended ###################
+            ############### categories ######################
+            Route::group(['prefix' => 'animalTypes'], function () {
+                Route::get('/', [AnimalTypeController::class, 'index'])->name('animalTypes.index');
+                Route::get('create', [AnimalTypeController::class, 'create'])->name('animalTypes.create');
+                Route::post('store', [AnimalTypeController::class, 'store'])->name('animalTypes.store');
+                Route::get('edit/{id}', [AnimalTypeController::class, 'edit'])->name('animalTypes.edit');
+                Route::post('update/{id}', [AnimalTypeController::class, 'update'])->name('animalTypes.update');
+                Route::post('delete/{id}', [AnimalTypeController::class, 'destroy'])->name('animalTypes.delete');
+            });
+
             ###############categories ended ###################
     });
