@@ -17,6 +17,5 @@ class Animal extends Model
     protected $with = ['translations'];
     protected $fillable = ['is_active'];
     protected $casts = ['is_active'=>'boolean'];
-    // public $translateAttributes = ['name'];
     public $translatedAttributes = ['name'];
 }

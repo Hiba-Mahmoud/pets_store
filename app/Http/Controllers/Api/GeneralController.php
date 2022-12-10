@@ -5,6 +5,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
+use App\Models\AnimalType;
 use App\Models\Brand;
 
 class GeneralController extends Controller
@@ -28,5 +29,11 @@ class GeneralController extends Controller
     public function animals(){
         $animals =  Animal::where('is_active',1)->get();
         return apiResponse('true','success',$animals);
+    }
+
+
+    public function animalType(){
+        $animaltype =  AnimalType::where('is_active',1)->get();
+        return apiResponse('true','success',$animaltype);
     }
 }

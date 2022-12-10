@@ -7,6 +7,7 @@ use App\Models\AnimalType;
 use Illuminate\Http\Request;
 use App\Http\Requests\BrandRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AnimalTypeRequest;
 
 class AnimalTypeController extends Controller
 {
@@ -38,13 +39,15 @@ class AnimalTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BrandRequest $request)
+    public function store(AnimalTypeRequest $request)
     {
-        
+
         $animalType = new AnimalType();
 
         // helper function
         isActive($request->is_active,$animalType);
+        $animalType->animal_id = $request->animal_id ;
+
         $animalType->save();
 
         $english = 'en';

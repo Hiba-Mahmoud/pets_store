@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GeneralController;
+// use Mcamara\LaravelLocalization\LaravelLocalization;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +29,12 @@ Route::Group(['prefix' => 'clients'], function () {
     Route::get('/categories', [GeneralController::class, 'categories']);
     Route::get('/brands', [GeneralController::class, 'brands']);
     Route::get('/animals', [GeneralController::class, 'animals']);
+    Route::get('/animalTypes', [GeneralController::class, 'animalType']);
 
 
 
 });
+// });
 
 
 

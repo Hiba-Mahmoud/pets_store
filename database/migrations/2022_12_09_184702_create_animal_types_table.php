@@ -18,6 +18,8 @@ return new class extends Migration
             $table->boolean('is_active');
             $table->bigInteger('animal_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
