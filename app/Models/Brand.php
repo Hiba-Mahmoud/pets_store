@@ -18,12 +18,13 @@ class Brand extends Model
     protected $with = ['translations'];
     protected $fillable = ['is_active'];
     protected $casts = ['is_active'=>'boolean'];
-    // public $translateAttributes = ['name'];
     public $translatedAttributes = ['name'];
 
-    // public function brandTranslations(){
-    //     return $this->hasMany('App\Models\BrandTranslation');
-    //    }
+
+    public function products(){
+        return $this->hasMany('App\Models\Product');
+    }
+    
 
 
 }

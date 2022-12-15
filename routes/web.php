@@ -7,6 +7,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\BrandsController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AnimalTypeController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -93,4 +94,17 @@ Route::group(
             });
 
             ###############categories ended ###################
+
+
+            ############### products ######################
+            Route::group(['prefix' => 'products'], function () {
+                Route::get('/', [ProductController::class, 'index'])->name('products.index');
+                Route::get('create', [ProductController::class, 'create'])->name('products.create');
+                Route::post('store', [ProductController::class, 'store'])->name('products.store');
+                Route::get('edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+                Route::post('update/{id}', [ProductController::class, 'update'])->name('products.update');
+                Route::post('delete/{id}', [ProductController::class, 'destroy'])->name('products.delete');
+            });
+
+            ###############products ended ###################
     });

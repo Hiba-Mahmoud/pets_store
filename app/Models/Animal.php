@@ -18,4 +18,8 @@ class Animal extends Model
     protected $fillable = ['is_active'];
     protected $casts = ['is_active'=>'boolean'];
     public $translatedAttributes = ['name'];
+
+    public function products(){
+        return $this->hasMany('App\Models\Products');
+    }
 }

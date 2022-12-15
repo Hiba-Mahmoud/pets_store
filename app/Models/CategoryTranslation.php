@@ -9,5 +9,8 @@ class CategoryTranslation extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+    public function categoryTranslations(){
+        return $this->belongsTo('App\Models\Category');
+       }
 
 }

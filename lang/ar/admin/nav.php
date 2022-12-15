@@ -16,6 +16,9 @@ return [
     'animalType'=>'انواع الحيوانات الاليفة',
     'showAnimalsTypes'=>'عرض انواع الحيوانات الاليفة',
     'createAnimalType'=>'إضافة نوع حيوان اليف ',
+    'products'=>'المنتجات',
+    'showProducts'=>'عرض المنتجات',
+    'createProduct'=>'إضافة منتج   ',
 
 
 ];

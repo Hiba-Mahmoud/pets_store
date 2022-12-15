@@ -26,10 +26,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::Group(['prefix' => 'clients'], function () {
 
-    Route::get('/categories', [GeneralController::class, 'categories']);
-    Route::get('/brands', [GeneralController::class, 'brands']);
-    Route::get('/animals', [GeneralController::class, 'animals']);
-    Route::get('/animalTypes', [GeneralController::class, 'animalType']);
+    Route::get('/categories/{locale?}/{search?}', [GeneralController::class, 'categories']);
+    Route::get('/brands/{locale?}', [GeneralController::class, 'brands']);
+    Route::get('/animals/{locale?}', [GeneralController::class, 'animals']);
+    Route::get('/animalTypes/{locale?}', [GeneralController::class, 'animalType']);
 
 
 

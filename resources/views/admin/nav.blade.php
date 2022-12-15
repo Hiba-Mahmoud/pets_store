@@ -410,6 +410,40 @@
                     </ul>
                 </li>
                 {{-- -------------------------end animalType ---------------------------  --}}
+                 {{-- -----------------products------------------------- --}}
+
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            {{__('admin/nav.products')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('products.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.showProducts')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('products.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('admin/nav.createProduct')}}</p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>jsGrid</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- -------------------------end products ---------------------------  --}}
 
 
 
